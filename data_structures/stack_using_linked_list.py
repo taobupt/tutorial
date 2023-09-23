@@ -53,7 +53,7 @@ class Stack:
             popped_node.next = None
             return popped_node.data
 
-    # Returns the head node data
+    # returns the head node data
     def peek(self):
 
         if self.is_empty():
@@ -62,7 +62,7 @@ class Stack:
         else:
             return self.head.data
 
-    # Prints out the stack
+    # prints out the stack
     def display(self):
         iter_node = self.head
         if self.is_empty():
@@ -76,7 +76,6 @@ class Stack:
             return
 
 
-# Driver code
 if __name__ == "__main__":
     my_stack = Stack()
 
