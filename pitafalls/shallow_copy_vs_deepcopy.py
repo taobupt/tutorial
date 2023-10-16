@@ -1,3 +1,4 @@
+"""the module which provides the difference between the assignment, shallow_copy, deep_copy"""
 import copy
 
 a = [1, 2, 3]
@@ -38,4 +39,3 @@ if __name__ == '__main__':
     assignment()
     shallow_copy()
     deep_copy()
-
