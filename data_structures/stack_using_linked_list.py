@@ -1,37 +1,39 @@
-# python3 program to Implement a stack
-# using singly linked list
+"""python3 program to implement a stack using singly linked list"""
+from dataclasses import dataclass
 
+
+@dataclass
 class Node:
     """
     class to create nodes of linked list
     """
-
-    def __init__(self, data):
-        """Initializes the Node by the input value
-
-        :param data: the value for the node
-        """
-        self.data = data
-        self.next = None
+    data: any
+    next: any = None
 
 
 class Stack:
+    """
+    class for the stack data structure
+    """
 
     # head is default NULL
     def __init__(self):
+        """
+        initialization function
+        """
         self.head = None
 
-    # checks if stack is empty
     def is_empty(self):
-        if self.head is None:
-            return True
-        else:
-            return False
+        """
+        checks if stack is empty
+        """
+        return self.head is None
 
-    # method to add data to the stack
-    # adds to the start of the stack
     def push(self, data):
-
+        """
+        method to add data to the stack
+        adds to the start of the stack
+        """
         if self.head is None:
             self.head = Node(data)
         else:
@@ -39,31 +41,31 @@ class Stack:
             new_node.next = self.head
             self.head = new_node
 
-    # remove element that is the current head (start of the stack)
     def pop(self):
-
+        """
+        remove element that is the current head (start of the stack)
+        """
         if self.is_empty():
             return None
+        # removes the head node and makes
+        # the preceding one the new head
+        popped_node = self.head
+        self.head = self.head.next
+        popped_node.next = None
+        return popped_node.data
 
-        else:
-            # removes the head node and makes
-            # the preceding one the new head
-            popped_node = self.head
-            self.head = self.head.next
-            popped_node.next = None
-            return popped_node.data
-
-    # returns the head node data
     def peek(self):
-
+        """
+        returns the head node data
+        """
         if self.is_empty():
             return None
+        return self.head.data
 
-        else:
-            return self.head.data
-
-    # prints out the stack
     def display(self):
+        """
+        prints out the stack
+        """
         iter_node = self.head
         if self.is_empty():
             print("Stack Underflow")
@@ -73,7 +75,6 @@ class Stack:
                 iter_node = iter_node.next
                 if iter_node is not None:
                     print(" -> ", end="")
-            return
 
 
 if __name__ == "__main__":
